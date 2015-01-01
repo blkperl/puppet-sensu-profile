@@ -5,6 +5,11 @@ node
   'derp2'
 {
   include apt
+
+  package { 'git':
+    ensure => present,
+  }
+
   include 3am::rabbitmq
   include 3am::sensu
   include 3am::uchiwa
@@ -13,9 +18,5 @@ node
 }
 
 node 'derpchild1' {
-
+  include 3am
 }
-
-# TODO
-#/opt/sensu/embedded/bin/gem install rest_client --no-ri --no-rdoc
-

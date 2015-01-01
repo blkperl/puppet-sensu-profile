@@ -18,7 +18,7 @@ class 3am::rabbitmq {
   }
 
   sensu::check { 'check_rabbitmq-cluster-health':
-    command     => '/etc/sensu/plugins/plugins/rabbitmq/rabbitmq-cluster-health.rb',
+    command     => '/etc/sensu/plugins/sensu-community-plugins/plugins/rabbitmq/rabbitmq-cluster-health.rb',
     handlers    => 'default',
     subscribers => 'rabbitmq'
   }

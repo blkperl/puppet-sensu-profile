@@ -1,1 +1,5 @@
 .vagrant
+*.swp
+
+# controlled by r10k
+puppet/vendor

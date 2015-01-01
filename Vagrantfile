@@ -8,7 +8,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.hostmanager.enabled = true
 
   config.vm.box = 'puppetlabs/ubuntu-14.04-64-puppet'
-  config.vm.provision :shell, inline: 'apt-get update'
 
   config.vm.define 'derp1' do |c|
     c.vm.hostname = 'derp1'
@@ -27,17 +26,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     c.vm.network :private_network, ip: '192.168.1.13'
   end
 
-  # Bootstrap puppet
-  config.vm.provision :shell, path: 'install_modules.sh'
+  config.vm.provision :shell, inline: 'apt-get update'
+
+  # Bootstrap puppet modules
+  config.vm.provision :shell, inline: 'puppet resource package git ensure=present'
+  # config.vm.provision :shell, inline: 'puppet resource package r10k provider=gem ensure=present'
+
+  # r10k plugin to deploy puppet modules
+  config.r10k.puppet_dir = "puppet"
+  config.r10k.puppetfile_path = "puppet/Puppetfile"
+  config.r10k.module_path = "puppet/vendor"
 
   config.vm.provision :puppet do |puppet|
     puppet.hiera_config_path = 'puppet/hiera.yaml'
     puppet.manifest_file     = 'site.pp'
     puppet.manifests_path    = 'puppet/manifests'
-    puppet.module_path       = 'puppet/modules'
+    puppet.module_path       = ['puppet/modules', 'puppet/vendor']
     puppet.options           = '--verbose'
-    puppet.facter = {
-      'fqdn' => 'lan'
-    }
   end
 end

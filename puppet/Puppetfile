@@ -1,0 +1,16 @@
+
+
+mod 'sensu',
+  :git    => 'https://github.com/sensu/sensu-puppet'
+
+mod 'vcsrepo',
+  :git    => 'https://github.com/puppetlabs/puppetlabs-vcsrepo'
+
+mod 'rabbitmq',
+  :git    => 'https://github.com/puppetlabs/puppetlabs-rabbitmq'
+
+mod 'uchiwa',
+  :git    => 'https://github.com/yelp/puppet-uchiwa'
+
+mod 'redis',
+  :git    => 'https://github.com/thomasvandoren/puppet-redis'
