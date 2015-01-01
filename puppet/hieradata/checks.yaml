@@ -1,6 +1,7 @@
 check_defaults:
   handlers:
     - slack
+  standalone: false
 
 checks:
 

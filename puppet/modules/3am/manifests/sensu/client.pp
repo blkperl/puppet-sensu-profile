@@ -1,10 +1,10 @@
-class 3am::sensu::client {
-  include 3am::sensu
-  include 3am::checks
+class 3am::sensu::client (
+  $subscriptions = 'system_checks'
+) {
+  include 3am::sensu::plugins
 
   class { '::sensu':
-    subscriptions     => 'system_checks',
+    subscriptions     => $subscriptions,
     use_embedded_ruby => true,
    }
-
 }

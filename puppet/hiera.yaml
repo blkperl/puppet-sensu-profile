@@ -7,4 +7,5 @@
   - custom
   - handlers
   - checks
+  - standalone_checks
   - global
