@@ -3,3 +3,6 @@
 
 # controlled by r10k
 puppet/vendor
+
+# these credentials should not go to github
+puppet/hieradata/custom.yaml

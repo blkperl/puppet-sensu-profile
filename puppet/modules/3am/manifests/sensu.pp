@@ -15,7 +15,7 @@ class 3am::sensu {
     use_embedded_ruby    => true,
     rabbitmq_host        => 'localhost',
     sensu_plugin_version => present,
-    subscriptions        => ['general', 'rabbitmq', 'uchiwa'],
+    subscriptions        => ['system_checks', 'service_rabbitmq_checks', 'service_uchiwa_checks'],
   }
 
   Class['::redis'] -> Class['::sensu']
@@ -25,38 +25,21 @@ class 3am::sensu {
     provider => sensu_gem,
   }
 
-  vcsrepo { '/etc/sensu/plugins/sensu-community-plugins':
+  package { 'git':
+    ensure => present,
+  }
+
+  vcsrepo { '/etc/sensu/sensu-community-plugins':
     ensure   => present,
     provider => git,
     source   => 'https://github.com/sensu/sensu-community-plugins',
+    require => Package['git'],
   }
 
-
-  sensu::check { 'check_load':
-    command     => '/etc/sensu/plugins/sensu-community-plugins/plugins/system/check-load.rb',
-    handlers    => 'default',
-    subscribers => 'general'
+  sensu::handler { 'slack':
+    command => '/etc/sensu/plugins/sensu-community-plugins/handlers/notification/slack.rb',
+    config  => hiera('slack_config'),
+    severities => ['warning', 'critical', 'unknown']
   }
-
-  sensu::check { 'check_disk':
-    command     => '/etc/sensu/plugins/sensu-community-plugins/plugins/system/check-disk.rb',
-    handlers    => 'default',
-    subscribers => 'general'
-  }
-
-  sensu::check { 'check_cpu':
-    command     => '/etc/sensu/plugins/sensu-community-plugins/plugins/system/check-cpu.rb',
-    handlers    => 'default',
-    subscribers => 'general'
-  }
-
-  sensu::check { 'check_mem':
-    command     => '/etc/sensu/plugins/sensu-community-plugins/plugins/system/check-mem.sh',
-    handlers    => 'default',
-    subscribers => 'general'
-  }
-
-
-
 
 }
