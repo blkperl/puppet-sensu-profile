@@ -6,6 +6,7 @@ Setup
 
 ```bash
 vagrant plugin install vagrant-hostmanager
+vagrant plugin install vagrant-r10k
 vagrant up
 ```
 

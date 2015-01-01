@@ -1,5 +1,5 @@
 class 3am {
-  class { 'sensu':
+  class { '::sensu':
     rabbitmq_host => 'derp1',
     subscriptions => 'general',
    }
