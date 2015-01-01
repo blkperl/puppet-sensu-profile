@@ -29,10 +29,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, inline: 'apt-get update'
   config.vm.provision :shell, inline: 'apt-get install puppet -y'
 
-  # Bootstrap puppet modules
-  config.vm.provision :shell, inline: 'puppet resource package git ensure=present'
-  # config.vm.provision :shell, inline: 'puppet resource package r10k provider=gem ensure=present'
-
   # r10k plugin to deploy puppet modules
   config.r10k.puppet_dir = "puppet"
   config.r10k.puppetfile_path = "puppet/Puppetfile"
