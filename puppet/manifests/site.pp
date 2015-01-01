@@ -1,12 +1,10 @@
-# rabbitmq / sensu master servers
-node
-  'derp1',
-  'derp2'
+# sensu master servers
+node /^sensu\d+$/
 {
   include 3am::sensuservers
 }
 
-# sensu client
-node 'derpchild1' {
+# stats servers
+node /stats\d+$/ {
   include 3am
 }

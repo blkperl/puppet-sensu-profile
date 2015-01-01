@@ -9,20 +9,20 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = 'puppetlabs/ubuntu-14.04-64-puppet'
 
-  config.vm.define 'derp1' do |c|
-    c.vm.hostname = 'derp1'
+  config.vm.define 'sensu1' do |c|
+    c.vm.hostname = 'sensu1'
     c.vm.network :private_network, ip: '192.168.1.11'
     c.vm.network 'forwarded_port', guest: 3000, host: 3000
   end
 
-  config.vm.define 'derp2' do |c|
-    c.vm.hostname = 'derp2'
+  config.vm.define 'sensu2' do |c|
+    c.vm.hostname = 'sensu2'
     c.vm.network :private_network, ip: '192.168.1.12'
     c.vm.network 'forwarded_port', guest: 3000, host: 3001
   end
 
-  config.vm.define 'derpchild1' do |c|
-    c.vm.hostname = 'derpchild1'
+  config.vm.define 'stats1' do |c|
+    c.vm.hostname = 'stats1'
     c.vm.network :private_network, ip: '192.168.1.13'
   end
 

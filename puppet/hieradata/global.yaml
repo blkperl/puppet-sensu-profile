@@ -2,8 +2,8 @@
 rabbitmq::config_cluster: true
 rabbitmq::cluster_node_type: 'ram'
 rabbitmq::cluster_nodes:
- - 'derp1'
- - 'derp2'
+ - 'sensu1'
+ - 'sensu2'
 rabbitmq::erlang_cookie: 'derpderp'
 rabbitmq::wipe_db_on_cookie_change: true
 
@@ -11,8 +11,9 @@ rabbitmq_user_sensu_password: 'yolosensu'
 
 # Sensu
 sensu::rabbitmq_password: 'yolosensu'
+sensu::rabbitmq_host: 'sensu1'
 
 # Uchiwa
 uchiwa::sensu_api_endpoints:
-  - host: 'derp1'
+  - host: 'sensu1'
 uchiwa::install_repo: false

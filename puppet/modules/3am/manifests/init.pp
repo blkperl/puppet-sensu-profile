@@ -2,7 +2,6 @@ class 3am {
   include 3am::checks
 
   class { '::sensu':
-    rabbitmq_host => 'derp1',
     subscriptions => 'system_checks',
     use_embedded_ruby    => true,
    }

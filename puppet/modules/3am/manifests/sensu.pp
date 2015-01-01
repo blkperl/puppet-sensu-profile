@@ -13,7 +13,6 @@ class 3am::sensu {
     rabbitmq_ssl         => false,
     server               => true,
     use_embedded_ruby    => true,
-    rabbitmq_host        => 'localhost',
     sensu_plugin_version => present,
     subscriptions        => ['system_checks', 'service_rabbitmq_checks', 'service_uchiwa_checks'],
   }
