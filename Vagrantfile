@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = 'puppetlabs/ubuntu-14.04-64-puppet'
   config.vm.provision :shell, inline: 'apt-get update'
+  config.vm.provision :shell, inline: 'apt-get install puppet -y'
 
   config.vm.define 'derp1' do |c|
     c.vm.hostname = 'derp1'
