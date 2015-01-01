@@ -1,4 +1,12 @@
 
+mod 'apt',
+  :git    => 'https://github.com/puppetlabs/puppetlabs-apt'
+
+mod 'gcc',
+  :git    => 'https://github.com/puppetlabs/puppetlabs-gcc'
+
+mod 'stdlib',
+  :git    => 'https://github.com/puppetlabs/puppetlabs-stdlib'
 
 mod 'sensu',
   :git    => 'https://github.com/sensu/sensu-puppet'
@@ -14,3 +22,9 @@ mod 'uchiwa',
 
 mod 'redis',
   :git    => 'https://github.com/thomasvandoren/puppet-redis'
+
+mod 'staging',
+  :git    => 'https://github.com/nanliu/puppet-staging'
+
+mod 'wget',
+  :git    => 'https://github.com/maestrodev/puppet-wget'
