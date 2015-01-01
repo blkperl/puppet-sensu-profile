@@ -18,7 +18,7 @@ class 3am::sensu::plugins {
     ensure   => present,
     provider => git,
     source   => 'https://github.com/sensu/sensu-community-plugins',
-    require => Package['git'],
+    require  => Package['git'],
   }
 
   $checks = hiera('checks')
