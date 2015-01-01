@@ -1,0 +1,16 @@
+sensu_handler_defaults:
+  severities:
+    - 'warning'
+    - 'critical'
+    - 'unknown'
+
+sensu_handlers:
+
+  slack:
+    command: '/etc/sensu/plugins/sensu-community-plugins/handlers/notification/slack.rb'
+    config:
+      token: "a_token"
+      team_name: "a_team"
+      channel: "#a_channel"
+      bot_name: "sensu"
+      message_prefix: "@channel"

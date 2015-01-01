@@ -1,10 +1,10 @@
 # sensu master servers
 node /^sensu\d+$/
 {
-  include 3am::sensuservers
+  include 3am::sensu::server
 }
 
 # stats servers
 node /stats\d+$/ {
-  include 3am
+  include 3am::sensu::client
 }

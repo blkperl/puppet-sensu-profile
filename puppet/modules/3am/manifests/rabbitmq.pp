@@ -17,10 +17,4 @@ class 3am::rabbitmq {
       write_permission     => '.*',
   }
 
-  sensu::check { 'check_rabbitmq-cluster-health':
-    command     => '/etc/sensu/sensu-community-plugins/plugins/rabbitmq/rabbitmq-cluster-health.rb',
-    handlers    => 'slack',
-    subscribers => 'service_rabbitmq_checks'
-  }
-
 }
