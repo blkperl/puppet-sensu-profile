@@ -6,4 +6,3 @@ sensu_standalone_check_defaults:
 sensu_standalone_checks:
   check_www_google_com:
     command: '/etc/sensu/sensu-community-plugins/plugins/http/check-http.rb -u http://www.google.com'
-    subscribers: 'sitemon_checks'
