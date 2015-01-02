@@ -6,3 +6,6 @@ puppet/vendor
 
 # these credentials should not go to github
 puppet/hieradata/custom.yaml
+
+# SSL certs and keys
+puppet/modules/ssl_certs

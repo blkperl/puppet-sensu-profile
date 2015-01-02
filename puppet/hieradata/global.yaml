@@ -7,6 +7,10 @@ rabbitmq::cluster_nodes:
  - 'sensu2'
 rabbitmq::erlang_cookie: 'derpderp'
 rabbitmq::wipe_db_on_cookie_change: true
+rabbitmq::ssl: true
+rabbitmq::ssl_cert: '/var/lib/rabbitmq/cert.pem'
+rabbitmq::ssl_key: '/var/lib/rabbitmq/key.pem'
+rabbitmq::ssl_cacert: '/var/lib/rabbitmq/cacert.pem'
 
 rabbitmq_user_sensu_password: 'yolosensu'
 
