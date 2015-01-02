@@ -8,9 +8,9 @@ rabbitmq::cluster_nodes:
 rabbitmq::erlang_cookie: 'derpderp'
 rabbitmq::wipe_db_on_cookie_change: true
 rabbitmq::ssl: true
-rabbitmq::ssl_cert: '/var/lib/rabbitmq/cert.pem'
-rabbitmq::ssl_key: '/var/lib/rabbitmq/key.pem'
-rabbitmq::ssl_cacert: '/var/lib/rabbitmq/cacert.pem'
+rabbitmq::ssl_cert: '/etc/rabbitmq/ssl/cert.pem'
+rabbitmq::ssl_key: '/etc/rabbitmq/ssl/key.pem'
+rabbitmq::ssl_cacert: '/etc/rabbitmq/ssl/cacert.pem'
 
 rabbitmq_user_sensu_password: 'yolosensu'
 

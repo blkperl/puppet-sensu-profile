@@ -14,6 +14,7 @@ class 3am::sensu::server {
     rabbitmq_ssl             => true,
     rabbitmq_ssl_private_key => 'puppet:///modules/ssl_certs/sensu_key.pem',
     rabbitmq_ssl_cert_chain  => 'puppet:///modules/ssl_certs/sensu_cert.pem',
+    rabbitmq_port            => 5671,
     server                   => true,
     use_embedded_ruby        => true,
     sensu_plugin_version     => present,

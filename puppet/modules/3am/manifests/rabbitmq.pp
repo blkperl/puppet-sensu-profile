@@ -18,19 +18,19 @@ class 3am::rabbitmq {
   }
 
   file {
-    '/var/lib/rabbitmq/cacert.pem':
+    '/etc/rabbitmq/ssl/cacert.pem':
       owner   => 'rabbitmq',
       group   => 'rabbitmq',
       mode    => '0400',
       source  => 'puppet:///modules/ssl_certs/cacert.pem';
 
-    '/var/lib/rabbitmq/cert.pem':
+    '/etc/rabbitmq/ssl/cert.pem':
       owner   => 'rabbitmq',
       group   => 'rabbitmq',
       mode    => '0400',
       source  => 'puppet:///modules/ssl_certs/rabbitmq_cert.pem';
 
-    '/var/lib/rabbitmq/key.pem':
+    '/etc/rabbitmq/ssl/key.pem':
       owner   => 'rabbitmq',
       group   => 'rabbitmq',
       mode    => '0400',
