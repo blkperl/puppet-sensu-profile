@@ -8,6 +8,7 @@ class 3am::sensu::server {
   include 3am::sensu::handlers
 
   class { '::sensu':
+    redis_host               => 'sensu1',
     api                      => true,
     purge_config             => true,
     rabbitmq_ssl             => true,
